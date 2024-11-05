@@ -714,6 +714,11 @@ pub const Window = opaque {
     }
     extern fn glfwSetWindowTitle(window: *Window, title: [*:0]const u8) void;
 
+    pub inline fn setIcon(window: *Window, images: []const Image) void {
+        glfwSetWindowIcon(window, @intCast(images.len), images.ptr);
+    }
+    extern fn glfwSetWindowIcon(window: *Window, count: i32, [*]const Image) void;
+
     pub fn getClipboardString(window: *Window) ?[:0]const u8 {
         return std.mem.span(glfwGetClipboardString(window));
     }

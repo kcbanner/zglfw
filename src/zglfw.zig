@@ -542,7 +542,7 @@ pub const Gamepad = enum(c_int) {
         left_trigger = 4,
         right_trigger = 5,
 
-        pub const count = std.meta.fields(@This()).len;
+        pub const count = std.meta.fieldNames(@This()).len;
     };
 
     pub const Button = enum(u8) {
@@ -562,7 +562,7 @@ pub const Gamepad = enum(c_int) {
         dpad_down = 13,
         dpad_left = 14,
 
-        pub const count = std.meta.fields(@This()).len;
+        pub const count = std.meta.fieldNames(@This()).len;
 
         pub const cross = Button.a;
         pub const circle = Button.b;
